@@ -21,6 +21,6 @@ router.get('/product', productController.getAllProductsController)
 router.get('/product/:productId', productController.getProductByIdController)
 
 router.post('/comment', commentController.createCommentController)
-router.get('/:videoId/comments', commentController.getCommentsByVideoIdController)
+router.get('video/:videoId/comments', commentController.getCommentsByVideoIdController)
 
 export default router;

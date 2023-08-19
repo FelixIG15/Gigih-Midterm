@@ -31,7 +31,7 @@ export const createCommentController = async (req, res) => {
 export const getCommentsByVideoIdController = async (req, res) => {
     try {
       const { videoId } = req.params;
-      const comments = await Comment.find({ video: videoId }).populate('user');
+      const comments = await Video.find({ video: videoId }).populate('user');
       res.status(200).json(comments);
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch comments.' });

@@ -5,9 +5,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 const app = express()
-const port = 3000
+const port = 5000
 
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://127.0.0.1:27017/GigihMidterm', {

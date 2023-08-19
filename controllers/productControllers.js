@@ -2,11 +2,12 @@ import Product from "../model/products.js";
 
 export const createProductController = async (req, res) => {
   try {
-    const { title, description, price } = req.body;
+    const { title, description, imageUrl, price } = req.body;
     const createdAt = new Date().toISOString()
     const newProduct = new Product({
       title: title,
       description: description,
+      imageUrl: imageUrl,
       price: price,
       createdAt: createdAt
     });
