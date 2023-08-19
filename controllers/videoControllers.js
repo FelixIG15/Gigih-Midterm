@@ -4,7 +4,7 @@ import Product from "../model/products.js";
 export const createVideoController = async (req, res) => {
     try {
       const { title, url, thumbnailImage } = req.body;
-      createdAt = new Date().toISOString();
+      let createdAt = new Date().toISOString();
       const newVideo = new Video({
         title: title,
         url: url,
@@ -21,9 +21,7 @@ export const createVideoController = async (req, res) => {
 
 export const getAllVideosController = async (req, res) => {
   try {
-    const videos = await Video.find().populate({
-      path: 'products'
-    });
+    const videos = await Video.find()
     res.status(200).json(videos);
   } catch (error) {
     console.log(error)
