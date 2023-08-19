@@ -4,7 +4,8 @@ import User from "../model/user.js"
 
 export const createCommentController = async (req, res) => {
     try {
-        const { comment, userId, videoId } = req.body;
+        const { videoId } = req.params;
+        const { comment, userId } = req.body;
         const existingUser = await User.findById(userId);
         if (!existingUser) {
             return res.status(404).json({ error: 'User not found.' });

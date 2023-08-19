@@ -3,14 +3,17 @@ import bodyParser from 'body-parser'
 import router from './routes.js';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from "dotenv"
 
+dotenv.config();
 const app = express()
 const port = 5000
+const uri = process.env.MONGODB_URI;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/GigihMidterm', {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).catch((error) => {
